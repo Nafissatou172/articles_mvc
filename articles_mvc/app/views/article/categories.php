@@ -6,16 +6,16 @@
         <!-- Table with toolbar -->
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title mb-3">Liste des articles </h5>
+                <h5 class="card-title mb-3">Liste des Categories </h5>
                 <div class="row">
 
                     <!-- Left toolbar -->
                     <div class="col-md-6 d-flex gap-1 align-items-center mb-3">
-                        <button class="btn btn-primary hstack gap-2 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <!-- <button class="btn btn-primary hstack gap-2 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="demo-psi-add fs-5"></i>
                             <span class="vr"></span>
                             Ajouter
-                        </button>
+                        </button> -->
                         <button class="btn btn-icon btn-outline-light" aria-label="Print table">
                             <i class="demo-pli-printer fs-5"></i>
                         </button>
@@ -28,29 +28,9 @@
 
                     <!-- Right Toolbar -->
                     <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <input type="text" placeholder="Search..." class="form-control" autocomplete="off">
-                        </div> -->
-                        <form method="GET" class="mb-4">
-                            <!-- On garde la même route -->
-                            <input type="hidden" name="controller" value="article">
-                            <input type="hidden" name="action" value="index">
-
-                            <label for="categorie">Filtrer par catégorie :</label>
-                            <select name="categorie" id="categorie"
-                                    class="form-select w-auto d-inline-block ms-2"
-                                    onchange="this.form.submit()">
-                                <option value="">Toutes les catégories</option>
-                                <?php foreach ($categories as $cat): ?>
-                                    <option value="<?= $cat['id'] ?>"
-                                        <?= (isset($_GET['categorie']) && $_GET['categorie'] == $cat['id']) ? 'selected' : '' ?>>
-                                        <?= htmlspecialchars($cat['libelle']) ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </form>
-
-
+                        </div>
                         <div class="btn-group">
                             <button class="btn btn-icon btn-outline-light" aria-label="Download"><i class="demo-pli-download-from-cloud fs-5"></i></button>
                             <div class="btn-group dropdown">
@@ -178,31 +158,24 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Titre</th>
-                                <th width="50%">Contenu</th>
-                                <th>Catégorie</th>
-                                <th>Action</th>
+                                <th>libelle</th>
+                                <!-- <th>Action</th> -->
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($articles as $a): ?>
+                            <?php foreach ($categories as $a): ?>
                             <tr>
-                                <td><?= htmlspecialchars($a['titre']) ?></td>
-                                <td><?= htmlspecialchars($a['contenu']) ?></td>
-                                <td><?= htmlspecialchars($a['categorie_nom']) ?></td>
-                                <td class="">
+                                <td><?= htmlspecialchars($a['libelle']) ?></td>
+                                <!-- <td class="">
                                     <button type="button" class="btn btn-icon btn-danger">
-                                        <a href="?action=delete&id=<?= $a['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer cet article ?')">
+                                        <a href="" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer cet article ?')">
                                             <i class="demo-psi-recycling icon-lg fs-5"></i>
                                         </a>
                                     </button>
-                                    <button  class="btn btn-icon btn-success rounded-circle btn-edit-user" data-bs-toggle="modal" data-bs-target="#editModal" 
-                                        data-id="<?= $a['id']?>"
-                                        data-titre="<?= $a['titre']?>"
-                                        data-contenu="<?= $a['contenu']?>" >
+                                    <button  class="btn btn-icon btn-success rounded-circle btn-edit-user" data-bs-toggle="modal" data-bs-target="#editModal" >
                                             <i class="demo-psi-tag icon-lg fs-5"></i>
                                     </button>
-                                </td> 
+                                </td>  -->
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

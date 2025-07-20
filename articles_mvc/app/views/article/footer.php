@@ -103,18 +103,9 @@
                                 <button class="d-block btn shadow-none p-2" data-bs-toggle="collapse" data-bs-target="#usernav" aria-expanded="false" aria-controls="usernav">
                                     <span class="dropdown-toggle d-flex justify-content-center align-items-center">
                                     
-                                         <h6 class="mb-0 me-3">admin</h6>
-                                       
-                                        <!-- <h1>Bienvenue, Vous etes deconnecté </h1>
-                                        <p>Veuillez <a href="{{ url_for('auth.login') }}">vous connecter</a> pour accéder à votre profil.</p> -->
+                                         <h6 class="mb-0 me-3">User Standard</h6>
                                        
                                     </span>
-                                  
-                                    <!-- <small class="text-muted">Admin</small>
-                                  
-                                    <small class="text-muted">Gestionnaire de service </small>
-                                   
-                                    <small class="text-muted">Agent de support </small> -->
                                    
                                 </button>
 
@@ -155,10 +146,10 @@
                                     </li> -->
                                     
                                     <li class="nav-item">
-                                        <a href="/gestion_faq" class="nav-link">Liste des articles</a>
+                                        <a href="<?php echo "index.php"?>" class="nav-link">Liste des articles</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/gestion_faq" class="nav-link">Liste des catégories</a>
+                                        <a href="<?php echo "index.php?controller=categorie&action=index"?>" class="nav-link">Liste des catégories</a>
                                     </li>
                                   
                                 </ul>
@@ -173,9 +164,14 @@
                                 </a>
                                 <!-- Dashboard submenu list -->
                                 <ul class="mininav-content nav collapse">
-                                    
                                     <li class="nav-item">
-                                        <a href="/settings" class="nav-link">Utilisateurs</a>
+                                        <a href="#" class="nav-link">index1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">index2</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">index3</a>
                                     </li>
                                     
                                 </ul>

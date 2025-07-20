@@ -10,6 +10,18 @@ class Article {
         return $this->pdo->query($sql)->fetchAll();
     }
 
+    public function getArticleByCategorie($categorie_id)
+    {
+        $sql = "SELECT a.*, c.libelle AS categorie_nom
+                FROM article a
+                LEFT JOIN categorie c ON a.categorie = c.id
+                WHERE a.categorie = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$categorie_id]);
+        return $stmt->fetchAll();
+    }
+
+
     public function getById($id) {
         $stmt = $this->pdo->prepare("SELECT * FROM article WHERE id = ?");
         $stmt->execute([$id]);

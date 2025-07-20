@@ -12,8 +12,20 @@ class ArticleController {
     }
 
     public function index() {
-        $articles = $this->articleModel->getAll();
+         // ‑‑ Récupère l’ID de catégorie passé en GET (ex : ?categorie=3) ‑‑
+        $categorie_id = $_GET['categorie'] ?? null;
+
+        // ‑‑ Récupère les articles : filtrés si un id est présent, sinon tous ‑‑
+        if ($categorie_id) {
+            $articles = $this->articleModel->getArticleByCategorie($categorie_id);
+        } else {
+            $articles = $this->articleModel->getAll();
+        }
+
+        // ‑‑ Toujours utile pour alimenter le menu déroulant de filtres ‑‑
         $categories = $this->categorieModel->getAll();
+
+        // ‑‑ Affiche la vue ‑‑
         include __DIR__ . '/../views/article/index.php';
     }
 
